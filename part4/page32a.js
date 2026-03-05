@@ -1,3 +1,4 @@
+
 let customers = [
   {
     id: 1,
@@ -15,7 +16,7 @@ let customers = [
 
 function checkBalance(id) {
   const customer = customers.find((customer) => customer.id === id);
-  console.log(customer);
+  console.log(customer)
 }
 
 function deposit(id, amount) {
@@ -38,33 +39,41 @@ function deposit(id, amount) {
     }
   });
 }
+
 function withdraw(id, amount) {
   customers = customers.map((customer) => {
     if (customer.id === id) {
-      return {
-        ...customer,
-        balance: customer.balance - amount,
-        transactions: [
-          ...customer.transactions,
-          {
-            type: "debit",
-            amount: amount,
-            date: Date.now(),
-          },
-        ],
-      };
+      if (customer.balance < amount) {
+        console.log("Insufficient Funds");
+        return customer
+      } else {
+        return {
+          ...customer,
+          balance: customer.balance - amount,
+          transactions: [
+            ...customer.transactions,
+            {
+              type: "debit",
+              amount: amount,
+              date: Date.now(),
+            },
+          ],
+        };
+      }
     } else {
       return customer;
     }
   });
 }
-function showTransactions(id) {
-  const customer = customers.find((customer) => customer.id === id);
-  console.log(customer.transactions);
+
+function showTransactions(id){
+const customer = customers.find(customer=>customer.id===id)
+console.table(customer.transactions)
 }
 deposit(1, 1500);
-checkBalance(1)
+checkBalance(1);
 deposit(1, 1000);
-checkBalance(1)
-withdraw(1, 2000);
-checkBalance(1)
+checkBalance(1);
+withdraw(1,20000)
+checkBalance(1);
+showTransactions(1)
