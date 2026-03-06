@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
 </head>
 <body>
-    <h2>Registration Form</h2>
-    <form action="/register" method="post">
-        <p><input type="text" placeholder=" Name"></p>
-       <p><input type="text" placeholder="Email"></p>
-       <p><input type="password" placeholder="Password"></p>
-       <p><button type="submit">Register</button></p>
-    </form>
-    <h2>if already have | <a href="/login">login</a></h2>
+
+<h2>Registration Form</h2>
+
+<form action="/register" method="post">
+    <p>
+        <input type="text" name="name" placeholder="Name">
+    </p>
+
+    <p>
+        <input type="email" name="email" placeholder="Email">
+    </p>
+
+    <p>
+        <input type="password" name="password" placeholder="Password">
+    </p>
+
+    <p>
+        <button type="submit">Register</button>
+    </p>
+</form>
+
+<h2>If Exists | <a href="/login">Login</a></h2>
+
 </body>
 </html>
